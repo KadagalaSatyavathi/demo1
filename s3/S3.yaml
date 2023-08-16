@@ -4,6 +4,9 @@ Parameters:
   AppENV:
     Type: String
     Default: DEV
+  BucketName:
+    Type: String
+    Default: harneesdemo1
 Resources:
   S3Bucket:
     Type: 'AWS::S3::Bucket'
