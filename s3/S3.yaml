@@ -6,7 +6,7 @@ Parameters:
     Default: DEV
   BucketName:
     Type: String
-    Default: harneesdemo1
+    Description: The bucket name
 Resources:
   S3Bucket:
     Type: 'AWS::S3::Bucket'
