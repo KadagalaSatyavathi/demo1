@@ -15,8 +15,8 @@ pipeline:
             steps:
               - step:
                   type: CreateStack
-                  name: stack4
-                  identifier: stack4
+                  name: CreateStack_9
+                  identifier: CreateStack_9
                   spec:
                     provisionerIdentifier: s3
                     configuration:
@@ -36,6 +36,16 @@ pipeline:
                               gitFetchType: Branch
                               branch: main
                       roleArn: ""
-                      parameters: []
+                      parameters:
+                        - identifier: s3
+                          store:
+                            type: Github
+                            spec:
+                              connectorRef: github
+                              paths:
+                                - s3/s3params.json
+                              repoName: demo1
+                              gitFetchType: Branch
+                              branch: main
                   timeout: 10m
         tags: {}
