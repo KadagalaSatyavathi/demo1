@@ -1,0 +1,6 @@
+{
+	"Parameters": {
+        "AppENV": "DEV",
+        "BucketName": "harneesdemo1"
+    }
+}
