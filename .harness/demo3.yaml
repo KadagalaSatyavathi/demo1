@@ -36,16 +36,6 @@ pipeline:
                               gitFetchType: Branch
                               branch: main
                       roleArn: ""
-                      parameters:
-                        - identifier: s3
-                          store:
-                            type: Github
-                            spec:
-                              connectorRef: github
-                              paths:
-                                - s3/s3params.json
-                              repoName: demo1
-                              gitFetchType: Branch
-                              branch: main
+                      parameters: []
                   timeout: 10m
         tags: {}
