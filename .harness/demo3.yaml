@@ -1,0 +1,51 @@
+pipeline:
+  name: demo3
+  identifier: demo3
+  projectIdentifier: default_project
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stack4
+        identifier: stack4
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: CreateStack
+                  name: stack4
+                  identifier: stack4
+                  spec:
+                    provisionerIdentifier: s3
+                    configuration:
+                      stackName: s3bucket
+                      connectorRef: aws
+                      region: us-east-1
+                      templateFile:
+                        type: Remote
+                        spec:
+                          store:
+                            type: Github
+                            spec:
+                              paths:
+                                - s3/S3.yaml
+                              connectorRef: github
+                              repoName: demo1
+                              gitFetchType: Branch
+                              branch: main
+                      roleArn: ""
+                      parameters:
+                        - identifier: s3
+                          store:
+                            type: Github
+                            spec:
+                              connectorRef: github
+                              paths:
+                                - s3/s3params.json
+                              repoName: demo1
+                              gitFetchType: Branch
+                              branch: main
+                  timeout: 10m
+        tags: {}
